@@ -1,4 +1,4 @@
-// (2) 4분할 가로로 쭉 color 비트맵 영상 생성 <트루컬러로>_2020
+// color 비트맵 영상 생성 <트루컬러로>
 //
 
 #include <stdio.h>
@@ -35,39 +35,34 @@ int main()
 	hf.bfOffBits = 54;  // 팔레트가 없으므로 파일의 시작부에서 영상데이터까지의 오프셋은 고정크기임.
 	hf.bfSize = hf.bfOffBits + hInfo.biSizeImage;
 
-
-
-	for (j = 0; j < 256; j++) {
-		for (i = 0; i < 64; i++) {
-			// RED 출력 
-			lpOutImg[i*rwsize + 3 * j + 2] = 255; //  R
-			lpOutImg[i*rwsize + 3 * j + 1] = 0;	//  G
-			lpOutImg[i*rwsize + 3 * j] =0; //  B
-
-			// GREEN 출력 
-			lpOutImg[(i+ 64)*rwsize + 3 * j + 2] = 0; //  R
-			lpOutImg[(i + 64)*rwsize + 3 * j + 1] = 255;	//  G
-			lpOutImg[(i + 64)*rwsize + 3 * j] = 0; //  B
-
+	// 컬러 출력 (거꾸로)
+	for (i = 0; i < 128; i++) {
+		for (j = 0; j < 128; j++) {
 			// BLUE 출력 
-			lpOutImg[(i+128)*rwsize + 3 * j + 2] = 0; //  R
-			lpOutImg[(i + 128)*rwsize + 3 * j + 1] = 0;	//  G
-			lpOutImg[(i + 128)*rwsize + 3 * j] = 255; //  B
-		
-			// BLACK 출력 
-			lpOutImg[(i+192)*rwsize + 3 * j + 2] = 0; //  R
-			lpOutImg[(i + 192)*rwsize + 3 * j + 1] = 0;	//  G
-			lpOutImg[(i + 192)*rwsize + 3 * j] = 0; //  B
+			lpOutImg[i*rwsize + 3 * j + 2] = 0; //  R
+			lpOutImg[i*rwsize + 3 * j + 1] = 0;	//  G
+			lpOutImg[i*rwsize + 3 * j] = 255; //  B
+
+			// BLACK 출력
+			lpOutImg[i*rwsize + 3 * (255 - j) + 2] = 0; // R
+			lpOutImg[i*rwsize + 3 * (255 - j) + 1] = 0;	// G
+			lpOutImg[i*rwsize + 3 * (255 - j)] = 0; // B
+
+			// RED 출력
+			lpOutImg[(255 - i) *rwsize + 3 * j + 2] = 255; // R
+			lpOutImg[(255 - i)*rwsize + 3 * j + 1] = 0;	// G
+			lpOutImg[(255 - i)*rwsize + 3 * j] = 0; // B
+
+			// GREEN 출력
+			lpOutImg[(255 - i)*rwsize + 3 * (255 - j) + 2] = 0; // R
+			lpOutImg[(255 - i)*rwsize + 3 * (255 - j) + 1] = 255;	// GREEN
+			lpOutImg[(255 - i)*rwsize + 3 * (255 - j)] = 0; // B
+		} 
 		}
-	}
-
-
-
-
-
+	
 	// 하드디스크에 영상데이터 쓰기
 	FILE *outfile;
-    fopen_s(&outfile, "sample_color_image2.bmp", "wb");
+    fopen_s(&outfile, "sample_color_image.bmp", "wb");
 	fwrite(&hf, sizeof(char), sizeof(BITMAPFILEHEADER), outfile);
 	fwrite(&hInfo, sizeof(char), sizeof(BITMAPINFOHEADER), outfile);
 	fwrite(lpOutImg, sizeof(BYTE), hInfo.biSizeImage, outfile);

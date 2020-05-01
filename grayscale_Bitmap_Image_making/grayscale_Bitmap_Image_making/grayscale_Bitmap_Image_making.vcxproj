@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{7B7FF20D-FD26-4770-9F8C-865EB9C784EB}</ProjectGuid>
-    <RootNamespace>sampleimagemaking</RootNamespace>
+    <ProjectGuid>{B5862A9F-EEBA-4226-897A-94DA8F4FD0DC}</ProjectGuid>
+    <RootNamespace>grayscaleBitmapImagemaking</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,9 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="color_image_making.cpp" />
-    <ClCompile Include="gray_scale_making.cpp" />
-    <ClCompile Include="mosaic_image_making.cpp" />
+    <ClCompile Include="grayscaleBitmapImageMaking.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

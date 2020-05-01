@@ -1,4 +1,4 @@
- // (1) 4분할 트루컬러 이미지 생성
+ // 4분할 트루컬러 raw 이미지 생성
 
 #include <stdio.h>
 #include <Windows.h>
