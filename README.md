@@ -4,7 +4,7 @@
 - Visual Studio 2019
  
 
-# 1. gray-scale 비트맵 영상의 negative 영상 만들기
+### 1. gray-scale 비트맵 영상의 negative 영상 만들기
 - 파일명 : bitmapTest
 
    - 교과서 39페이지(리스트 3-2)
@@ -13,14 +13,14 @@
 
 -------
 
-# 2. color 비트맵 영상의 negative 영상 만들기
+### 2. color 비트맵 영상의 negative 영상 만들기
 - 파일명 : colorBitmapNegative
 
    - 교과서 49페이지(리스트 3-4)
    - 입력 영상: "pshop256.bmp"
 
 ----
-# 3. raw 이미지 생성하기
+### 3. raw 이미지 생성하기
 
 * 코드에 메인 함수가 중복되게 작성했습니다.
 
@@ -69,7 +69,7 @@
 - 32 blocks / column
 -----
 
-# 4. BMP 비트맵 이미지 생성하기
+### 4. BMP 비트맵 이미지 생성하기
 
 (1) color 영상 4분할로 생성
 - 파일명 : color_Bitmap_Image_making/colorBitmapImageMaking.cpp
@@ -111,6 +111,3 @@
 
 ----------
 책 참고 : Visual C++와 OpenCV로 배우는 디지털 영상처리
-
-
-파일 정리를 너무 지저분하게 했네요. 조만간 수정할게요. (Updated 20200501)
